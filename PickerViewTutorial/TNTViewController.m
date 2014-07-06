@@ -22,7 +22,11 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     // Initialize Data
-    _pickerData = @[@"Item1", @"Item 2", @"Item 3", @"Item 4", @"Item 5", @"Item 6"];
+    //_pickerData = @[@"Item1", @"Item 2", @"Item 3", @"Item 4", @"Item 5", @"Item 6"];
+    _pickerData = @[ @[@"1", @"2", @"3", @"4"],
+                     @[@"a", @"b", @"c", @"d"],
+                     @[@"!", @"#", @"$", @"%"],
+                     @[@"w", @"x", @"y", @"z"] ];
     
     // Connect Data
     self.picker.dataSource = self;
@@ -41,7 +45,7 @@
 // The number of columns of data
 - (int)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    return 1;
+    return 4;
 }
 
 // The number of rows of data
@@ -53,7 +57,14 @@
 // The data to return for the row and component (column) that's being passed in
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return _pickerData[row];
+    return _pickerData[row][component];
+}
+
+// Capture the picker view selection
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    // This method is triggered whenever the user makes a change to the picker selection.
+    // The parameter named row and component represents what was selected.
 }
 
 @end
