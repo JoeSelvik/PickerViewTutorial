@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TNTViewController : UIViewController
+@interface TNTViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIPickerView *picker;
 
 @end
